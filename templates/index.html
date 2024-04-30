@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Resultados da Mega-Sena {% endblock %}</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Último Resultado</h5>
+            <p class="card-text">Concurso: <b>{{ concurso }}</b></p>
+            <p class="card-text">Data: <b>{{datasorteio}}</b></p>
+            <p class="card-text">Dezenas sorteadas: 
+                <b>
+                {% for row in dezenas %}
+                    {{ row }}
+                {% endfor %}
+                </b>
+            </p>
+        </div>
+    </div>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="numero_concurso">Buscar Resultado</label>
+            <input type="text" name="numero_concurso"
+                   placeholder="Informe o número do concurso" class="form-control"
+                   value="{{ request.form['numero_concurso'] }}"></input>
+        </div>
+    
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </div>
+    </form>
+   
+{% endblock %}

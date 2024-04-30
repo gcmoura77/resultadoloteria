@@ -34,4 +34,9 @@ def get_ultimo_concurso():
     resultado = megasena.json() # transforma a resposta em um dicionário
     return resultado
 
+def get_resultado_concurso(numero):
+    megasena = requests.get(link + f"/{numero}")
 
+    # buscar a última mega-sena
+    resultado = megasena.json() # transforma a resposta em um dicionário
+    return resultado   

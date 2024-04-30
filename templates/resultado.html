@@ -1,13 +1,7 @@
-<!doctype html>
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Resultado da Mega-Sena</title>
-    </head>
-    <body>
-        <p>Concurso: <b>{{ concurso }}</b></p>
-        <p>Data: <b>{{datasorteio}}</b></p>
-        <p>Dezenas sorteadas: <b>{{ dezenas }}</b></p>
-    </body>
-</html>
+{% block content %}
+
+<p>Apresentar o resultado dos últimos x concursos</p>
+   
+{% endblock %}
