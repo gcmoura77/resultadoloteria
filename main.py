@@ -21,17 +21,16 @@ def index():
         dezenas = resultado['dezenas_sorteadas']
         dezenas.sort()
 
-    return render_template('index.html', concurso=ultimo_concurso, datasorteio=resultado['data_apuracao'], dezenas=dezenas)
+    if resultado['acumulado']:
+        ganhadores = "Acumulou!"
+    else:
+        ganhadores = f"{resultado['f1_ganhadores']} ganhador(es)"
+
+    return render_template('index.html', concurso=ultimo_concurso, datasorteio=resultado['data_apuracao'], dezenas=dezenas, ganhadores=ganhadores)
 
 @app.route("/resultado")
 def resultado():
-    
-    resultado = get_ultimo_concurso()
-    ultimo_concurso = resultado['id']
-    dezenas = resultado['dezenas_sorteadas']
-    dezenas.sort()
-
-    return render_template('resultado.html', concurso=ultimo_concurso, datasorteio=resultado['data_apuracao'], dezenas=dezenas)
+    return render_template('resultado.html')
 
 # colocar o site no ar
 if __name__ == '__main__':

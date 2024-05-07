@@ -11,10 +11,14 @@
             <p class="card-text">Dezenas sorteadas: 
                 <b>
                 {% for row in dezenas %}
-                <span class="btn btn-primary"> {{ row }} </span>
-                {% endfor %}
-                </b>
+                <!-- <span class="btn btn-primary"> {{ row }} </span> -->
+                <span class="badge badge-pill badge-primary"> {{ row }} </span>
+                {% endfor %}                
+                </b>                
             </p>
+            <div class="alert alert-light" role="alert">
+                {{ganhadores}}
+            </div>
         </div>
     </div>
     <br>
